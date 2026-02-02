@@ -1,0 +1,215 @@
+<!-- ============================================
+     SECTION 10: PRICING
+     OnTheTok Landing Page
+     ============================================ -->
+
+<style>
+.pricing-section {
+    padding: 100px 0;
+    background: var(--bg-dark);
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+@media (max-width: 968px) {
+    .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+}
+
+.pricing-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-2xl);
+    padding: 36px;
+    position: relative;
+    transition: all var(--transition-base);
+}
+
+.pricing-card:hover { border-color: var(--border-light); }
+
+.pricing-card.featured {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 50px rgba(16, 185, 129, 0.15);
+    transform: scale(1.03);
+}
+
+@media (max-width: 968px) { .pricing-card.featured { transform: none; } }
+
+.pricing-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 20px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 700;
+    color: #000;
+    white-space: nowrap;
+}
+
+.pricing-tier { text-align: center; margin-bottom: 24px; }
+.pricing-tier h3 { font-size: 22px; font-weight: 700; color: var(--text-white); margin-bottom: 6px; }
+.pricing-tier p { font-size: 14px; color: var(--text-gray-500); margin: 0; }
+
+.pricing-price {
+    text-align: center;
+    padding: 24px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 24px;
+}
+
+.pricing-amount { font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 800; color: var(--accent-primary); }
+.pricing-period { font-size: 14px; color: var(--text-gray-500); }
+.pricing-yearly { font-size: 12px; color: var(--text-gray-600); margin-top: 6px; }
+
+.pricing-features { list-style: none; margin: 0 0 28px 0; padding: 0; }
+.pricing-features li { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; font-size: 14px; color: var(--text-gray-300); }
+.pricing-features li svg { width: 18px; height: 18px; color: #4ade80; margin-top: 1px; flex-shrink: 0; }
+
+.pricing-cta {
+    display: block;
+    width: 100%;
+    padding: 14px 24px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    text-decoration: none;
+}
+
+.pricing-cta-primary { background: linear-gradient(135deg, var(--accent-primary), #059669); color: #000; }
+.pricing-cta-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(16, 185, 129, 0.3); }
+.pricing-cta-secondary { background: transparent; color: var(--text-white); border: 2px solid var(--border-light); }
+.pricing-cta-secondary:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
+
+.pricing-addons {
+    text-align: center;
+    margin-top: 60px;
+    padding: 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pricing-addons h4 { font-size: 17px; font-weight: 600; color: var(--text-white); margin-bottom: 20px; }
+.addons-list { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.addon-item { padding: 12px 20px; background: var(--bg-darker); border-radius: var(--radius-md); font-size: 14px; color: var(--text-gray-400); }
+.addon-item span { color: var(--accent-primary); font-weight: 600; }
+</style>
+
+<section class="pricing-section" id="harga">
+    <div class="container">
+        <div class="pricing-header">
+            <div class="section-label">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                Pilih Paket
+            </div>
+            <h2 class="section-title">Investasi untuk <span class="text-gradient">Pertumbuhan</span></h2>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Starter -->
+            <div class="pricing-card reveal">
+                <div class="pricing-tier">
+                    <h3>STARTER</h3>
+                    <p>Untuk Solo Fighter</p>
+                </div>
+                <div class="pricing-price">
+                    <div class="pricing-amount">Rp 393.000</div>
+                    <div class="pricing-period">/bulan</div>
+                    <div class="pricing-yearly">Rp 4.719.000 /tahun</div>
+                </div>
+                <ul class="pricing-features">
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 10.000 Broadcast Quota</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 350 Tracking Order Sampel</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 2.500 Tracking Konten</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> AI Message Generator</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Chrome Extension</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Auto-Reminder System</li>
+                </ul>
+                <a href="https://wa.me/6287777220117?text=Halo,%20saya%20tertarik%20paket%20STARTER%20OnTheTok" class="pricing-cta pricing-cta-secondary">Coba Gratis 7 Hari</a>
+            </div>
+
+            <!-- Growth -->
+            <div class="pricing-card featured reveal">
+                <div class="pricing-badge">⭐ MOST POPULAR</div>
+                <div class="pricing-tier">
+                    <h3>GROWTH</h3>
+                    <p>Untuk Tim & Brand Bertumbuh</p>
+                </div>
+                <div class="pricing-price">
+                    <div class="pricing-amount">Rp 944.000</div>
+                    <div class="pricing-period">/bulan</div>
+                    <div class="pricing-yearly">Rp 11.327.000 /tahun</div>
+                </div>
+                <ul class="pricing-features">
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 30.000 Broadcast Quota</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 750 Tracking Order Sampel</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 5.000 Tracking Konten</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Priority Support</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Semua fitur Starter +</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Advanced Analytics</li>
+                </ul>
+                <a href="https://wa.me/6287777220117?text=Halo,%20saya%20tertarik%20paket%20GROWTH%20OnTheTok" class="pricing-cta pricing-cta-primary">Mulai Sekarang</a>
+            </div>
+
+            <!-- Scale -->
+            <div class="pricing-card reveal">
+                <div class="pricing-tier">
+                    <h3>SCALE</h3>
+                    <p>Untuk Agency & Power User</p>
+                </div>
+                <div class="pricing-price">
+                    <div class="pricing-amount">Rp 2.750.000</div>
+                    <div class="pricing-period">/bulan</div>
+                    <div class="pricing-yearly">Rp 33.039.000 /tahun</div>
+                </div>
+                <ul class="pricing-features">
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 100.000 Broadcast Quota</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 2.500 Tracking Order Sampel</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 15.000 Tracking Konten</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Telegram Bot Report 🤖</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Dedicated Account Manager</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom Integration (API)</li>
+                </ul>
+                <a href="https://wa.me/6287777220117?text=Halo,%20saya%20tertarik%20paket%20SCALE%20OnTheTok" class="pricing-cta pricing-cta-secondary">Konsultasi Strategis</a>
+            </div>
+        </div>
+
+        <div class="pricing-addons reveal">
+            <h4>Butuh lebih? Beli Add-on:</h4>
+            <div class="addons-list">
+                <div class="addon-item">+10K Broadcast: <span>Rp 150K</span></div>
+                <div class="addon-item">+100 Order Tracking: <span>Rp 100K</span></div>
+                <div class="addon-item">+1K Content Tracking: <span>Rp 75K</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+const pricingObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
+    });
+}, { threshold: 0.1 });
+document.querySelectorAll('.pricing-section .reveal').forEach(el => pricingObserver.observe(el));
+</script>

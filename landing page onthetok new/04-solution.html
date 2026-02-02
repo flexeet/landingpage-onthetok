@@ -1,0 +1,344 @@
+<!-- ============================================
+     SECTION 4: SOLUTION INTRO
+     OnTheTok Landing Page
+     ============================================ -->
+
+<style>
+/* Solution Section */
+.solution-section {
+    padding: 100px 0;
+    background: var(--bg-darker);
+    position: relative;
+}
+
+.solution-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.solution-header .section-subtitle {
+    margin: 0 auto;
+}
+
+/* 3 Pillars */
+.solution-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 60px;
+}
+
+.pillar-card {
+    text-align: center;
+    padding: 40px 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.pillar-card:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-4px);
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.1);
+}
+
+.pillar-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: var(--radius-lg);
+    color: #000;
+}
+
+.pillar-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.pillar-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-white);
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.pillar-desc {
+    font-size: 14px;
+    color: var(--text-gray-400);
+    line-height: 1.6;
+}
+
+/* Pillar Connector */
+.pillar-connector {
+    position: absolute;
+    top: 50%;
+    right: -12px;
+    transform: translateY(-50%);
+    color: var(--accent-primary);
+    z-index: 10;
+}
+
+.pillar-card:last-child .pillar-connector {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .solution-pillars {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .pillar-connector {
+        display: none;
+    }
+}
+
+/* Comparison Box */
+.comparison-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-2xl);
+    padding: 40px;
+}
+
+@media (max-width: 768px) {
+    .comparison-box {
+        grid-template-columns: 1fr;
+        padding: 24px;
+    }
+}
+
+/* Comparison Side */
+.comparison-side {
+    position: relative;
+}
+
+.comparison-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.comparison-title svg {
+    width: 22px;
+    height: 22px;
+}
+
+.comparison-title.before {
+    color: #f87171;
+}
+
+.comparison-title.after {
+    color: #4ade80;
+}
+
+.comparison-content {
+    padding: 24px;
+    background: var(--bg-darker);
+    border-radius: var(--radius-lg);
+    min-height: 220px;
+}
+
+/* Chaos Grid (Before) */
+.chaos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chaos-item {
+    padding: 8px 12px;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    color: var(--text-gray-400);
+    transition: all var(--transition-fast);
+}
+
+.chaos-item:hover {
+    background: rgba(239, 68, 68, 0.15);
+}
+
+/* Clean Hub (After) */
+.clean-hub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 180px;
+}
+
+.hub-center {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.3);
+}
+
+.hub-center img {
+    height: 50px;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+
+.hub-spokes {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hub-spoke {
+    padding: 8px 14px;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 500;
+    color: #4ade80;
+}
+</style>
+
+<section class="solution-section" id="solusi">
+    <div class="container">
+        <!-- Header -->
+        <div class="solution-header">
+            <div class="section-label">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>
+                Perkenalkan
+            </div>
+            <h2 class="section-title">
+                OnTheTok Bukan Sekadar <span class="text-gradient">"Tools Broadcast"</span>
+            </h2>
+            <p class="section-subtitle">
+                Ini adalah Operating System (OS) pertama di dunia yang mengintegrasikan SELURUH siklus affiliate TikTok
+            </p>
+        </div>
+
+        <!-- 3 Pillars -->
+        <div class="solution-pillars">
+            <!-- Pillar 1: Database -->
+            <div class="pillar-card reveal">
+                <div class="pillar-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5V19A9 3 0 0 0 21 19V5"></path><path d="M3 12A9 3 0 0 0 21 12"></path></svg>
+                </div>
+                <h3 class="pillar-title">DATABASE</h3>
+                <p class="pillar-desc">
+                    Kelola ribuan kreator dalam satu sistem terintegrasi dengan smart grouping & auto-sync
+                </p>
+                <div class="pillar-connector">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </div>
+            </div>
+
+            <!-- Pillar 2: Logistics -->
+            <div class="pillar-card reveal reveal-delay-1">
+                <div class="pillar-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
+                </div>
+                <h3 class="pillar-title">LOGISTICS</h3>
+                <p class="pillar-desc">
+                    Otomasi pengiriman sampel dari order extraction hingga delivery tracking
+                </p>
+                <div class="pillar-connector">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </div>
+            </div>
+
+            <!-- Pillar 3: Content -->
+            <div class="pillar-card reveal reveal-delay-2">
+                <div class="pillar-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"></path><rect x="2" y="6" width="14" height="12" rx="2" ry="2"></rect></svg>
+                </div>
+                <h3 class="pillar-title">CONTENT</h3>
+                <p class="pillar-desc">
+                    Auto-verification video, GMV tracking, dan ROI analytics dalam satu dashboard
+                </p>
+            </div>
+        </div>
+
+        <!-- Before/After Comparison -->
+        <div class="comparison-box reveal">
+            <!-- Before -->
+            <div class="comparison-side">
+                <div class="comparison-title before">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg>
+                    Sebelum OnTheTok
+                </div>
+                <div class="comparison-content">
+                    <div class="chaos-grid">
+                        <span class="chaos-item">WhatsApp</span>
+                        <span class="chaos-item">Excel</span>
+                        <span class="chaos-item">Seller Center</span>
+                        <span class="chaos-item">Notepad</span>
+                        <span class="chaos-item">Google Forms</span>
+                        <span class="chaos-item">TikTok</span>
+                        <span class="chaos-item">Compass</span>
+                        <span class="chaos-item">Telegram</span>
+                        <span class="chaos-item">Google Drive</span>
+                        <span class="chaos-item">Sheets</span>
+                        <span class="chaos-item">Email</span>
+                        <span class="chaos-item">Notion</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- After -->
+            <div class="comparison-side">
+                <div class="comparison-title after">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                    Sesudah OnTheTok
+                </div>
+                <div class="comparison-content">
+                    <div class="clean-hub">
+                        <div class="hub-center">
+                            <img src="https://flxr2.com/ott/logo.png" alt="OnTheTok">
+                        </div>
+                        <div class="hub-spokes">
+                            <span class="hub-spoke">WA Gateway</span>
+                            <span class="hub-spoke">Database</span>
+                            <span class="hub-spoke">Logistics</span>
+                            <span class="hub-spoke">Content</span>
+                            <span class="hub-spoke">Reports</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Scroll reveal for solution section
+const solutionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.solution-section .reveal').forEach(el => {
+    solutionObserver.observe(el);
+});
+</script>

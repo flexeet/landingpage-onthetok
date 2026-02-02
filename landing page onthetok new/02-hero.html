@@ -1,0 +1,347 @@
+<!-- ============================================
+     SECTION 2: HERO
+     OnTheTok Landing Page
+     ============================================ -->
+
+<style>
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 140px 0 100px;
+    overflow: hidden;
+    background: var(--bg-darker);
+}
+
+/* Background Effects */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.hero-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.4;
+}
+
+.hero-glow-1 {
+    width: 500px;
+    height: 500px;
+    background: var(--accent-primary);
+    top: 10%;
+    left: 10%;
+    animation: float 10s ease-in-out infinite;
+}
+
+.hero-glow-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--accent-secondary);
+    bottom: 10%;
+    right: 15%;
+    animation: float 12s ease-in-out infinite reverse;
+}
+
+.hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+}
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: var(--radius-full);
+    font-size: 14px;
+    font-weight: 500;
+    color: #f87171;
+    margin-bottom: 32px;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.hero-badge svg {
+    width: 16px;
+    height: 16px;
+}
+
+.hero-title {
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.hero-title-highlight {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(28px, 5vw, 52px);
+    color: var(--accent-primary);
+    margin-bottom: 8px;
+}
+
+.hero-subtitle {
+    font-size: clamp(17px, 2vw, 20px);
+    color: var(--text-gray-400);
+    margin-bottom: 40px;
+    line-height: 1.6;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+/* Hero Stats Comparison */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.hero-stat {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+}
+
+.hero-stat:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-light);
+}
+
+.hero-stat.bad {
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.hero-stat.good {
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
+.hero-stat-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+}
+
+.hero-stat.bad .hero-stat-icon {
+    background: rgba(239, 68, 68, 0.1);
+    color: #f87171;
+}
+
+.hero-stat.good .hero-stat-icon {
+    background: rgba(34, 197, 94, 0.1);
+    color: #4ade80;
+}
+
+.hero-stat-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.hero-stat-content {
+    text-align: left;
+}
+
+.hero-stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-gray-500);
+    margin-bottom: 2px;
+}
+
+.hero-stat-value {
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-white);
+}
+
+/* Hero CTA Buttons */
+.hero-cta {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.hero-cta .btn {
+    padding: 16px 32px;
+    font-size: 16px;
+}
+
+.hero-cta .btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-gray-500);
+    font-size: 12px;
+    animation: fadeIn 1s ease-out 1s both;
+}
+
+.scroll-mouse {
+    width: 24px;
+    height: 38px;
+    border: 2px solid var(--text-gray-500);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+}
+
+.scroll-wheel {
+    width: 4px;
+    height: 8px;
+    background: var(--accent-primary);
+    border-radius: 2px;
+    animation: float 1.5s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 120px 0 80px;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-stat {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-cta .btn {
+        width: 100%;
+        max-width: 320px;
+    }
+    
+    .scroll-indicator {
+        display: none;
+    }
+}
+</style>
+
+<section class="hero" id="hero">
+    <!-- Background Effects -->
+    <div class="hero-bg">
+        <div class="hero-grid"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+    </div>
+
+    <div class="container">
+        <div class="hero-content">
+            <!-- Badge -->
+            <div class="hero-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                Untuk Tim Affiliate Manager yang Lelah Jadi "Admin Data Entry"
+            </div>
+
+            <!-- Title -->
+            <h1 class="hero-title">
+                <span class="hero-title-highlight">18 Staff. 2.892 Jam/Bulan.</span>
+                Hanya Untuk Kirim Sampel ke 10.000 Kreator.
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="hero-subtitle">
+                Anda tidak butuh tim lebih besar.<br>
+                Anda butuh sistem yang lebih pintar.
+            </p>
+
+            <!-- Stats Comparison -->
+            <div class="hero-stats">
+                <div class="hero-stat bad">
+                    <div class="hero-stat-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </div>
+                    <div class="hero-stat-content">
+                        <div class="hero-stat-label">Manual</div>
+                        <div class="hero-stat-value">18 Full-time Staff</div>
+                    </div>
+                </div>
+
+                <div class="hero-stat good">
+                    <div class="hero-stat-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <div class="hero-stat-content">
+                        <div class="hero-stat-label">OnTheTok</div>
+                        <div class="hero-stat-value">1 Strategist + Laptop</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="hero-cta">
+                <a href="https://wa.me/6287777220117?text=Halo,%20saya%20ingin%20melihat%20demo%20OnTheTok" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Lihat Demo 3 Menit
+                </a>
+                <a href="#roi" class="btn btn-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M16 10h.01"></path><path d="M12 10h.01"></path><path d="M8 10h.01"></path><path d="M12 14h.01"></path><path d="M8 14h.01"></path><path d="M12 18h.01"></path><path d="M8 18h.01"></path></svg>
+                    Hitung ROI Saya
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll</span>
+    </div>
+</section>

@@ -1,0 +1,334 @@
+<!-- ============================================
+     SECTION 5: WORKFLOW (5 Steps)
+     OnTheTok Landing Page
+     ============================================ -->
+
+<style>
+.workflow-section {
+    padding: 100px 0;
+    background: var(--bg-dark);
+}
+
+.workflow-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+.workflow-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.workflow-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.workflow-step {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    padding: 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-2xl);
+    position: relative;
+}
+
+.workflow-step:nth-child(even) { direction: rtl; }
+.workflow-step:nth-child(even) > * { direction: ltr; }
+
+@media (max-width: 968px) {
+    .workflow-step { grid-template-columns: 1fr; padding: 28px; }
+    .workflow-step:nth-child(even) { direction: ltr; }
+}
+
+.workflow-step-number {
+    position: absolute;
+    top: -16px;
+    left: 40px;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+}
+
+.workflow-step-content h3 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 20px;
+}
+
+.workflow-step-content h3 svg {
+    width: 26px;
+    height: 26px;
+    color: var(--accent-primary);
+}
+
+.workflow-pain-box {
+    padding: 16px 20px;
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    border-radius: var(--radius-lg);
+    margin-bottom: 16px;
+}
+
+.workflow-pain-box h4 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #f87171;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.workflow-pain-box h4 svg { width: 14px; height: 14px; }
+.workflow-pain-box p { font-size: 14px; color: var(--text-gray-400); margin: 0; }
+
+.workflow-solution-box {
+    padding: 16px 20px;
+    background: rgba(16, 185, 129, 0.05);
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    border-radius: var(--radius-lg);
+    margin-bottom: 20px;
+}
+
+.workflow-solution-box h4 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-primary);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.workflow-solution-box h4 svg { width: 14px; height: 14px; }
+.workflow-solution-box ul { list-style: none; margin: 0; padding: 0; }
+
+.workflow-solution-box li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-gray-300);
+    margin-bottom: 8px;
+}
+
+.workflow-solution-box li svg {
+    width: 14px;
+    height: 14px;
+    color: var(--accent-primary);
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.workflow-benefit-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: var(--radius-full);
+    font-size: 13px;
+    font-weight: 600;
+    color: #4ade80;
+}
+
+.workflow-benefit-tag svg { width: 16px; height: 16px; }
+
+.workflow-step-visual {
+    background: var(--bg-darker);
+    border-radius: var(--radius-xl);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 260px;
+}
+
+.workflow-step-visual svg {
+    width: 64px;
+    height: 64px;
+    color: var(--accent-primary);
+    margin-bottom: 16px;
+    opacity: 0.8;
+}
+
+.workflow-step-visual span {
+    font-size: 14px;
+    color: var(--text-gray-500);
+    font-weight: 500;
+}
+</style>
+
+<section class="workflow-section" id="cara-kerja">
+    <div class="container">
+        <div class="workflow-header">
+            <div class="section-label">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>
+                Cara Kerja
+            </div>
+            <h2 class="section-title">5 Langkah Menuju <span class="text-gradient">Operasi Tanpa Stress</span></h2>
+            <p class="section-subtitle" style="margin: 0 auto;">Dari setup hingga laporan, semuanya otomatis</p>
+        </div>
+
+        <div class="workflow-steps">
+            <!-- Step 1 -->
+            <div class="workflow-step reveal">
+                <span class="workflow-step-number">1</span>
+                <div class="workflow-step-content">
+                    <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v2m0 18v2M4.2 4.2l1.4 1.4m12.8 12.8 1.4 1.4M1 12h2m18 0h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path></svg> Command Center</h3>
+                    <div class="workflow-pain-box">
+                        <h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Dulu</h4>
+                        <p>Brief kampanye di WhatsApp, instruksi hilang, tim bingung, eksekusi berantakan.</p>
+                    </div>
+                    <div class="workflow-solution-box">
+                        <h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Sekarang</h4>
+                        <ul>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg> SKU Intelligence (auto-detect produk)</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg> Trigger Code ("JOIN" → otomatis registered)</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg> Brief tersimpan, siap dipanggil kapan saja</li>
+                        </ul>
+                    </div>
+                    <div class="workflow-benefit-tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg> 1x setup → 1000x eksekusi otomatis</div>
+                </div>
+                <div class="workflow-step-visual">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>
+                    <span>Campaign Dashboard</span>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="workflow-step reveal">
+                <span class="workflow-step-number">2</span>
+                <div class="workflow-step-content">
+                    <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 11 18-5v12L3 13v-2z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg> Smart Outreach</h3>
+                    <div class="workflow-pain-box">
+                        <h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Dulu</h4>
+                        <p>Nulis pesan manual 1000x. Nomor terblokir. Kreator ignore karena pesan terlalu "salesy".</p>
+                    </div>
+                    <div class="workflow-solution-box">
+                        <h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Sekarang</h4>
+                        <ul>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg> AI Generator: Tulis brief → AI bikin copy menarik</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg> Anti-Ban Tech: Dynamic delay + message variations</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg> Smart Grouping: Target "Top Creator" vs "Newbie"</li>
+                        </ul>
+                    </div>
+                    <div class="workflow-benefit-tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> Aman broadcast 10K+ tanpa banned</div>
+                </div>
+                <div class="workflow-step-visual">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" x2="11" y1="2" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    <span>AI Broadcast Engine</span>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="workflow-step reveal">
+                <span class="workflow-step-number">3</span>
+                <div class="workflow-step-content">
+                    <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg> Zero-Entry Logistics</h3>
+                    <div class="workflow-pain-box">
+                        <h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Dulu</h4>
+                        <p>Copy-paste order 500x dari Seller Center. Salah tulis alamat = barang nyasar.</p>
+                    </div>
+                    <div class="workflow-solution-box">
+                        <h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Sekarang</h4>
+                        <ul>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg> 1-Click Extract: Tarik semua data order sampel</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg> Auto-Matching: Sistem cocokkan SKU dengan campaign</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg> Live Tracking: Status "Packing → Shipped → Delivered"</li>
+                        </ul>
+                    </div>
+                    <div class="workflow-benefit-tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Hemat 72 jam/campaign</div>
+                </div>
+                <div class="workflow-step-visual">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="21.17" x2="12" y1="8" y2="8"></line><line x1="3.95" x2="8.54" y1="6.06" y2="14"></line><line x1="10.88" x2="15.46" y1="21.94" y2="14"></line></svg>
+                    <span>Chrome Extension Magic</span>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="workflow-step reveal">
+                <span class="workflow-step-number">4</span>
+                <div class="workflow-step-content">
+                    <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg> Auto-Nudging System</h3>
+                    <div class="workflow-pain-box">
+                        <h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Dulu</h4>
+                        <p>Manually follow-up 1000 kreator. Malu-maluin. Banyak yang ghosting.</p>
+                    </div>
+                    <div class="workflow-solution-box">
+                        <h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Sekarang</h4>
+                        <ul>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg> Trigger: Deteksi saat "Delivered"</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg> H-7 (Ramah): "Paket sudah sampai ya kak..."</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg> H-3 (Tegas) → H-1 (Warning): Peringatan keras</li>
+                        </ul>
+                    </div>
+                    <div class="workflow-benefit-tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="20" y2="10"></line><line x1="18" x2="18" y1="20" y2="4"></line><line x1="6" x2="6" y1="20" y2="16"></line></svg> Submission rate 60% → 95%</div>
+                </div>
+                <div class="workflow-step-visual">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+                    <span>Lifecycle Automation</span>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="workflow-step reveal">
+                <span class="workflow-step-number">5</span>
+                <div class="workflow-step-content">
+                    <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" x2="18" y1="20" y2="10"></line><line x1="12" x2="12" y1="20" y2="4"></line><line x1="6" x2="6" y1="20" y2="14"></line></svg> Content Intelligence</h3>
+                    <div class="workflow-pain-box">
+                        <h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Dulu</h4>
+                        <p>Buka 1000 link video 1-per-1 buat validasi. Ga tau video mana yang ROI tinggi.</p>
+                    </div>
+                    <div class="workflow-solution-box">
+                        <h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Sekarang</h4>
+                        <ul>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg> Kreator submit link → Sistem verify otomatis</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg> Pull data Views, Likes, Comments</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg> Upload TikTok Compass → Match GMV per video</li>
+                        </ul>
+                    </div>
+                    <div class="workflow-benefit-tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9Z"></path><path d="M11 3 8 9l4 13 4-13-3-6"></path><path d="M2 9h20"></path></svg> ROI transparency 100%</div>
+                </div>
+                <div class="workflow-step-visual">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                    <span>Analytics Dashboard</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+const workflowObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
+    });
+}, { threshold: 0.1 });
+document.querySelectorAll('.workflow-section .reveal').forEach(el => workflowObserver.observe(el));
+</script>
