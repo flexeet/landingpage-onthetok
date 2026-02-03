@@ -358,11 +358,15 @@
         font-size: 14px;
     }
 
+   /* =========================================
+       FIXED: TRACKER PADDING & POSITION
+       ========================================= */
     .tracker-container {
         position: relative;
         max-width: 100%;
         overflow-x: auto;
-        padding-bottom: 20px;
+        /* Tambah padding atas/bawah agar saat Scale Up tidak terpotong */
+        padding: 30px 10px; 
         scrollbar-width: none; 
         -ms-overflow-style: none;
     }
@@ -376,21 +380,21 @@
         align-items: flex-start;
         min-width: 800px;
         position: relative;
-        /* Membuat konteks tumpukan baru */
-        z-index: 1; 
+        z-index: 1;
     }
 
     /* --- GARIS (BACKGROUND & PROGRESS) --- */
-    /* Posisi garis diatur Absolute, tapi Z-Index paling bawah */
     .tracker-line-bg {
         position: absolute;
-        top: 35px; /* Setengah dari tinggi icon 70px */
+        /* 35px (setengah icon) + 0px padding container tidak perlu dihitung jika relative terhadap flex */
+        /* Karena kita beri padding di container luar, posisi top relatif terhadap item tetap 35px */
+        top: 35px; 
         left: 0;
         width: 100%;
         height: 4px;
         background: var(--border-color);
         border-radius: 4px;
-        z-index: 0; /* Layer paling bawah */
+        z-index: 0; 
     }
 
     .tracker-line-fill {
@@ -400,9 +404,10 @@
         height: 4px;
         background: var(--accent-primary);
         border-radius: 4px;
-        z-index: 0; /* Layer bawah (sama dengan bg line, tapi di atasnya karena urutan DOM) */
+        z-index: 0;
         width: 0%;
-        transition: width 0.8s ease-in-out;
+        /* Membuat gerakan bar lebih halus (linear/ease) */
+        transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
     }
 
@@ -413,7 +418,7 @@
         align-items: center;
         width: 100px;
         position: relative;
-        z-index: 2; /* PENTING: Ikon harus di atas garis */
+        z-index: 2;
         transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -421,23 +426,16 @@
     .squircle-box {
         width: 70px;
         height: 70px;
-        
-        /* PERBAIKAN UTAMA DI SINI: */
-        /* Gunakan var(--bg-dark) agar warnanya solid sama dengan background halaman */
-        /* Ini akan menutupi garis yang lewat di belakangnya */
         background: var(--bg-dark); 
-        
         border: 2px solid var(--border-color);
-        border-radius: 30% 30% 30% 30% / 30% 30% 30% 30%; /* Bentuk Oval/Squircle */
+        border-radius: 30% 30% 30% 30% / 30% 30% 30% 30%;
         display: flex;
         align-items: center;
         justify-content: center;
         transition: all 0.5s ease-in-out;
         position: relative;
         color: var(--text-gray-400);
-        
-        /* Tambahkan box-shadow sedikit agar tidak terlihat 'bolong' jika warna sama persis */
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
 
     .squircle-icon {
@@ -445,7 +443,6 @@
         transition: all 0.3s;
     }
 
-    /* Checklist Overlay */
     .check-overlay {
         position: absolute;
         inset: 0;
@@ -465,36 +462,30 @@
         color: var(--text-gray-400);
         text-align: center;
         transition: color 0.3s;
-        /* Beri background text sedikit agar garis tidak memotong teks (opsional) */
         background: var(--bg-dark);
-        padding: 0 4px;
-        z-index: 2;
+        padding: 0 4px; 
     }
 
-    /* --- STATES (ACTIVE / DONE) --- */
-
-    /* Active State */
+    /* --- STATES --- */
     .tracker-step-item[data-status="active"] .squircle-box {
         border-color: var(--accent-primary);
         color: var(--accent-primary);
-        /* Gunakan background solid + sedikit tint, jangan transparan penuh */
-        background: #0f1f1a; /* Atau sesuaikan dengan var(--bg-dark) yang agak terang */
-        box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
-        transform: scale(1.1);
+        background: #0f1f1a; 
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.3); /* Shadow lebih besar */
+        transform: scale(1.15); /* Scale sedikit lebih besar agar pop up terasa */
     }
     .tracker-step-item[data-status="active"] .tracker-label {
         color: var(--accent-primary);
         font-weight: 700;
     }
 
-    /* Done State */
     .tracker-step-item[data-status="done"] .squircle-box {
         border-color: var(--accent-primary);
-        /* Tetap solid background saat done */
-        background: var(--bg-dark); 
+        background: var(--bg-dark);
+        transform: scale(1); /* Kembali ke ukuran normal saat done */
     }
     .tracker-step-item[data-status="done"] .squircle-icon {
-        opacity: 0.1; 
+        opacity: 0.1;
     }
     .tracker-step-item[data-status="done"] .check-overlay {
         transform: scale(1) rotate(0deg);
@@ -1049,57 +1040,56 @@
         setTimeout(() => lk.classList.add('filled'), 200); setTimeout(() => { bt.classList.add('active'); bt.textContent = '...'; }, 500); setTimeout(() => { bt.textContent = '✓'; st[0].classList.add('show'); }, 1100); setTimeout(() => st[1].classList.add('show'), 1300); setTimeout(() => st[2].classList.add('show'), 1500); setTimeout(() => gm.classList.add('show'), 1900);
     }
 
-    // --- NEW: TRACKER ANIMATION LOGIC ---
+   // --- NEW: TRACKER ANIMATION LOGIC (WITH RESET & SMOOTH LOOP) ---
     let trackerInterval;
+
     function runTrackerDemo() {
-        if(trackerInterval) clearInterval(trackerInterval); // Reset if already running
-        
+        if (trackerInterval) clearInterval(trackerInterval); // Bersihkan interval lama jika ada
+
         const steps = document.querySelectorAll('.tracker-step-item');
         const progressFill = document.getElementById('trackerProgress');
-        let currentActiveIndex = 1; 
-        const progressWidths = ['14%', '28%', '42%', '57%', '71%', '85%', '100%'];
         
-        // Reset State
-        steps.forEach((step, idx) => {
-            if(idx === 0) {
-                step.setAttribute('data-status', 'done');
-                progressFill.style.width = '14%';
-            } else if (idx === 1) {
-                step.setAttribute('data-status', 'active');
-            } else {
-                step.setAttribute('data-status', 'pending');
-            }
-        });
+        // Reset Kondisi Awal (Semua Pending)
+        steps.forEach(step => step.setAttribute('data-status', 'pending'));
+        progressFill.style.width = '0%';
+        
+        let currentStepIndex = 0;
 
+        // Fungsi Interval
         trackerInterval = setInterval(() => {
-            if (currentActiveIndex < steps.length) {
-                // Prev -> Done
-                const previousStep = steps[currentActiveIndex - 1];
-                if(previousStep) previousStep.setAttribute('data-status', 'done');
-
-                // Current -> Active
-                const currentStep = steps[currentActiveIndex];
-                currentStep.setAttribute('data-status', 'active');
-
-                // Bar
-                progressFill.style.width = progressWidths[currentActiveIndex];
-
-                currentActiveIndex++;
-            } else {
-                // Finish Loop
-                steps[steps.length - 1].setAttribute('data-status', 'done');
-                progressFill.style.width = '100%';
+            // Jika masih ada step yang harus dijalankan
+            if (currentStepIndex < steps.length) {
                 
-                // Optional: Restart Loop after delay
-                setTimeout(() => {
-                     currentActiveIndex = 1;
-                     runTrackerDemo();
-                }, 3000);
-                clearInterval(trackerInterval);
-            }
-        }, 1500); // Speed of transition
-    }
+                // 1. Tandai step sebelumnya sebagai DONE (jika bukan step pertama)
+                if (currentStepIndex > 0) {
+                    steps[currentStepIndex - 1].setAttribute('data-status', 'done');
+                }
 
+                // 2. Tandai step sekarang sebagai ACTIVE (Pop Up)
+                steps[currentStepIndex].setAttribute('data-status', 'active');
+
+                // 3. Update Bar Progress (Menuju ke titik tengah step sekarang)
+                // Hitungan persentase: (Index / (Total - 1)) * 100
+                const percent = (currentStepIndex / (steps.length - 1)) * 100;
+                progressFill.style.width = `${percent}%`;
+
+                // Pindah ke step berikutnya untuk putaran selanjutnya
+                currentStepIndex++;
+
+            } else {
+                // Selesai Loop: Tandai step terakhir sebagai DONE
+                steps[steps.length - 1].setAttribute('data-status', 'done');
+                
+                // Hentikan interval sementara
+                clearInterval(trackerInterval);
+
+                // Tunggu 2 detik, lalu reset dan mulai lagi (Looping)
+                setTimeout(() => {
+                    runTrackerDemo();
+                }, 2000);
+            }
+        }, 1500); // Kecepatan perpindahan (1.5 detik per step)
+    }
 
     // --- OBSERVER ---
     const obs = new IntersectionObserver((entries) => { 
@@ -1107,6 +1097,7 @@
             if (entry.isIntersecting) { 
                 entry.target.classList.add('active'); 
                 const id = entry.target.querySelector('.workflow-step-visual')?.id; 
+                
                 // Existing Demos
                 if (id === 'demo1') setTimeout(runDemo1, 300); 
                 if (id === 'demo2') setTimeout(runDemo2, 300); 
@@ -1114,8 +1105,9 @@
                 if (id === 'demo4') setTimeout(runDemo4, 300); 
                 if (id === 'demo5') setTimeout(runDemo5, 300); 
 
-                // New Tracker Demo
+                // New Tracker Demo (Hanya jalankan jika belum berjalan)
                 if (entry.target.id === 'tracker-section') {
+                    // Beri jeda sedikit agar user melihat state awal kosong dulu
                     setTimeout(runTrackerDemo, 500);
                 }
             } 
