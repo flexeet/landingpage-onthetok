@@ -1,0 +1,203 @@
+<!-- ============================================
+     SECTION 11: FAQ
+     OnTheTok Landing Page
+     ============================================ -->
+
+<style>
+.faq-section {
+    padding: 100px 0;
+    background: var(--bg-darker);
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.faq-grid {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.faq-item.expanded {
+    border-color: var(--accent-primary);
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.faq-question:hover {
+    background: var(--bg-elevated);
+}
+
+.faq-question h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-white);
+    padding-right: 16px;
+    margin: 0;
+}
+
+.faq-question svg {
+    width: 20px;
+    height: 20px;
+    color: var(--accent-primary);
+    transition: transform var(--transition-base);
+    flex-shrink: 0;
+}
+
+.faq-item.expanded .faq-question svg {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-base);
+}
+
+.faq-answer-content {
+    padding: 0 24px 24px;
+    font-size: 14px;
+    color: var(--text-gray-400);
+    line-height: 1.7;
+}
+</style>
+
+<section class="faq-section" id="faq">
+    <div class="container">
+        <div class="faq-header">
+            <div class="section-label">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                FAQ
+            </div>
+            <h2 class="section-title">Pertanyaan <span class="text-gradient">Umum</span></h2>
+        </div>
+
+        <div class="faq-grid">
+            <!-- FAQ 1 -->
+            <div class="faq-item reveal">
+                <div class="faq-question">
+                    <h4>Apakah aman untuk akun TikTok Shop saya?</h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Sangat aman. OnTheTok tidak meminta password Seller Center. Kami menggunakan Chrome Extension yang hanya baca data, tidak modifikasi apapun di akun Anda.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item reveal">
+                <div class="faq-question">
+                    <h4>Bagaimana jika kuota saya habis?</h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Bisa top-up add-on kapan saja atau upgrade paket instant. Tidak ada batasan untuk menambah kuota sesuai kebutuhan Anda.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item reveal">
+                <div class="faq-question">
+                    <h4>Apakah support multiple SKU/varian produk?</h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Ya. Anda bisa input ratusan SKU sekaligus untuk tracking akurat. Sistem kami mendukung multi-SKU dan multi-campaign secara bersamaan.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item reveal">
+                <div class="faq-question">
+                    <h4>Berapa lama setup awal?</h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Onboarding 30 menit. Guide ada di dalam app.Tim kami siap membantu jika ada kendala. Anda akan siap operasional dalam hari yang sama.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item reveal">
+                <div class="faq-question">
+                    <h4>Apakah ada garansi?</h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Trial 7 hari gratis dengan akses penuh. Kami yakin Anda akan merasakan manfaatnya, detail hubungi admin.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="faq-item reveal">
+                <div class="faq-question">
+                    <h4>Data kreator saya aman?</h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        data kreator aman karena tersimpan di cloud, tidak perlu khawatir jika perangkat hilang.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+        const item = question.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const isExpanded = item.classList.contains('expanded');
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+            otherItem.classList.remove('expanded');
+            otherItem.querySelector('.faq-answer').style.maxHeight = '0';
+        });
+
+        // Toggle current
+        if (!isExpanded) {
+            item.classList.add('expanded');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+    });
+});
+
+// Reveal animation for FAQ section
+const faqObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
+    });
+}, { threshold: 0.1 });
+document.querySelectorAll('.faq-section .reveal').forEach(el => faqObserver.observe(el));
+</script>
