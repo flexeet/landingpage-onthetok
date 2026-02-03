@@ -1,12 +1,11 @@
-<!-- ============================================
-     SECTION 5: WORKFLOW WITH ANIMATED DEMOS
-     OnTheTok Landing Page
-     ============================================ -->
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
 <style>
+    /* --- STYLE BAWAAN ANDA --- */
     .workflow-section {
         padding: 100px 0;
         background: var(--bg-dark);
+        color: #fff; /* Ensure default text is white */
     }
 
     .workflow-header {
@@ -221,672 +220,275 @@
     }
 
     /* Demo 1 */
-    .demo1-topbar {
-        display: flex;
-        gap: 5px;
-        margin-bottom: 10px;
-    }
-
-    .demo1-tab {
-        padding: 5px 10px;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 5px;
-        font-size: 10px;
-        color: var(--text-gray-500);
-    }
-
-    .demo1-tab.active {
-        background: var(--accent-primary);
-        color: #000;
-        font-weight: 600;
-    }
-
-    .demo1-form {
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 8px;
-        padding: 12px;
-        margin-bottom: 8px;
-    }
-
-    .demo1-row {
-        display: flex;
-        gap: 8px;
-        margin-bottom: 8px;
-    }
-
-    .demo1-field {
-        flex: 1;
-    }
-
-    .demo1-label {
-        font-size: 8px;
-        color: var(--text-gray-500);
-        text-transform: uppercase;
-        margin-bottom: 3px;
-    }
-
-    .demo1-input {
-        background: var(--bg-darker);
-        border: 1px solid var(--border-color);
-        border-radius: 5px;
-        padding: 7px 9px;
-        font-size: 10px;
-        color: #fff;
-        width: 100%;
-        min-height: 28px;
-        transition: all 0.3s;
-        font-family: monospace;
-    }
-
-    .demo1-input.typing {
-        border-color: var(--accent-primary);
-        box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.15);
-    }
-
-    .demo1-input.filled {
-        border-color: var(--accent-primary);
-    }
-
-    .demo1-sku-detect {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        padding: 7px 10px;
-        background: rgba(16, 185, 129, 0.1);
-        border: 1px solid rgba(16, 185, 129, 0.2);
-        border-radius: 5px;
-        font-size: 9px;
-        color: var(--accent-primary);
-        opacity: 0;
-        transform: translateY(6px);
-        transition: all 0.4s;
-    }
-
-    .demo1-sku-detect.show {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .demo1-sku-detect svg {
-        width: 12px;
-        height: 12px;
-    }
-
-    .demo1-trigger {
-        display: inline-flex;
-        padding: 5px 10px;
-        background: var(--accent-primary);
-        color: #000;
-        font-size: 9px;
-        font-weight: 600;
-        border-radius: 5px;
-        margin-top: 8px;
-        opacity: 0;
-        transition: all 0.4s;
-    }
-
-    .demo1-trigger.show {
-        opacity: 1;
-    }
+    .demo1-topbar { display: flex; gap: 5px; margin-bottom: 10px; }
+    .demo1-tab { padding: 5px 10px; background: rgba(255, 255, 255, 0.05); border-radius: 5px; font-size: 10px; color: var(--text-gray-500); }
+    .demo1-tab.active { background: var(--accent-primary); color: #000; font-weight: 600; }
+    .demo1-form { background: rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 12px; margin-bottom: 8px; }
+    .demo1-row { display: flex; gap: 8px; margin-bottom: 8px; }
+    .demo1-field { flex: 1; }
+    .demo1-label { font-size: 8px; color: var(--text-gray-500); text-transform: uppercase; margin-bottom: 3px; }
+    .demo1-input { background: var(--bg-darker); border: 1px solid var(--border-color); border-radius: 5px; padding: 7px 9px; font-size: 10px; color: #fff; width: 100%; min-height: 28px; transition: all 0.3s; font-family: monospace; }
+    .demo1-input.typing { border-color: var(--accent-primary); box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.15); }
+    .demo1-input.filled { border-color: var(--accent-primary); }
+    .demo1-sku-detect { display: flex; align-items: center; gap: 5px; padding: 7px 10px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 5px; font-size: 9px; color: var(--accent-primary); opacity: 0; transform: translateY(6px); transition: all 0.4s; }
+    .demo1-sku-detect.show { opacity: 1; transform: translateY(0); }
+    .demo1-sku-detect svg { width: 12px; height: 12px; }
+    .demo1-trigger { display: inline-flex; padding: 5px 10px; background: var(--accent-primary); color: #000; font-size: 9px; font-weight: 600; border-radius: 5px; margin-top: 8px; opacity: 0; transition: all 0.4s; }
+    .demo1-trigger.show { opacity: 1; }
 
     /* Demo 2 */
-    .demo2-container {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .demo2-brief {
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 6px;
-        padding: 10px;
-    }
-
-    .demo2-brief-title {
-        font-size: 9px;
-        color: var(--text-gray-500);
-        text-transform: uppercase;
-        margin-bottom: 6px;
-    }
-
-    .demo2-brief-text {
-        background: var(--bg-darker);
-        border-radius: 5px;
-        padding: 8px;
-        font-size: 10px;
-        color: var(--text-gray-400);
-        min-height: 36px;
-    }
-
-    .demo2-brief-text .cursor {
-        display: inline-block;
-        width: 2px;
-        height: 11px;
-        background: var(--accent-primary);
-        animation: blink 0.8s infinite;
-        vertical-align: middle;
-    }
-
-    @keyframes blink {
-
-        0%,
-        50% {
-            opacity: 1
-        }
-
-        51%,
-        100% {
-            opacity: 0
-        }
-    }
-
-    .demo2-arrow {
-        text-align: center;
-        color: var(--border-color);
-        font-size: 16px;
-    }
-
-    .demo2-arrow.active {
-        color: var(--accent-primary);
-    }
-
-    .demo2-output {
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 6px;
-        padding: 10px;
-    }
-
-    .demo2-output-title {
-        font-size: 9px;
-        color: var(--accent-primary);
-        text-transform: uppercase;
-        margin-bottom: 6px;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-    }
-
-    .demo2-output-title svg {
-        width: 10px;
-        height: 10px;
-    }
-
-    .demo2-messages {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .demo2-msg {
-        background: var(--bg-darker);
-        border-radius: 5px;
-        padding: 6px 8px;
-        font-size: 9px;
-        color: var(--text-gray-400);
-        border-left: 2px solid transparent;
-        opacity: 0;
-        transform: translateX(10px);
-        transition: all 0.3s;
-    }
-
-    .demo2-msg.show {
-        opacity: 1;
-        transform: translateX(0);
-        border-left-color: var(--accent-primary);
-    }
-
-    .demo2-status {
-        margin-top: 8px;
-        padding: 5px 8px;
-        background: rgba(34, 197, 94, 0.1);
-        border-radius: 5px;
-        font-size: 8px;
-        color: #4ade80;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        opacity: 0;
-    }
-
-    .demo2-status.show {
-        opacity: 1;
-    }
-
-    .demo2-status svg {
-        width: 10px;
-        height: 10px;
-    }
+    .demo2-container { display: flex; flex-direction: column; gap: 8px; }
+    .demo2-brief { background: rgba(255, 255, 255, 0.03); border-radius: 6px; padding: 10px; }
+    .demo2-brief-title { font-size: 9px; color: var(--text-gray-500); text-transform: uppercase; margin-bottom: 6px; }
+    .demo2-brief-text { background: var(--bg-darker); border-radius: 5px; padding: 8px; font-size: 10px; color: var(--text-gray-400); min-height: 36px; }
+    .demo2-brief-text .cursor { display: inline-block; width: 2px; height: 11px; background: var(--accent-primary); animation: blink 0.8s infinite; vertical-align: middle; }
+    @keyframes blink { 0%, 50% { opacity: 1 } 51%, 100% { opacity: 0 } }
+    .demo2-arrow { text-align: center; color: var(--border-color); font-size: 16px; }
+    .demo2-arrow.active { color: var(--accent-primary); }
+    .demo2-output { background: rgba(255, 255, 255, 0.03); border-radius: 6px; padding: 10px; }
+    .demo2-output-title { font-size: 9px; color: var(--accent-primary); text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 4px; }
+    .demo2-output-title svg { width: 10px; height: 10px; }
+    .demo2-messages { display: flex; flex-direction: column; gap: 5px; }
+    .demo2-msg { background: var(--bg-darker); border-radius: 5px; padding: 6px 8px; font-size: 9px; color: var(--text-gray-400); border-left: 2px solid transparent; opacity: 0; transform: translateX(10px); transition: all 0.3s; }
+    .demo2-msg.show { opacity: 1; transform: translateX(0); border-left-color: var(--accent-primary); }
+    .demo2-status { margin-top: 8px; padding: 5px 8px; background: rgba(34, 197, 94, 0.1); border-radius: 5px; font-size: 8px; color: #4ade80; display: flex; align-items: center; gap: 4px; opacity: 0; }
+    .demo2-status.show { opacity: 1; }
+    .demo2-status svg { width: 10px; height: 10px; }
 
     /* Demo 3 */
-    .demo3-container {
-        display: flex;
-        gap: 6px;
-    }
-
-    .demo3-seller {
-        flex: 1;
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 6px;
-        padding: 8px;
-    }
-
-    .demo3-seller-header {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        margin-bottom: 6px;
-        font-size: 9px;
-        color: var(--text-gray-500);
-    }
-
-    .demo3-seller-header svg {
-        width: 10px;
-        height: 10px;
-    }
-
-    .demo3-table {
-        background: var(--bg-darker);
-        border-radius: 5px;
-        overflow: hidden;
-    }
-
-    .demo3-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        font-size: 8px;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    .demo3-row:last-child {
-        border-bottom: none;
-    }
-
-    .demo3-cell {
-        padding: 5px 6px;
-        color: var(--text-gray-500);
-        transition: all 0.3s;
-    }
-
-    .demo3-row.header .demo3-cell {
-        background: rgba(255, 255, 255, 0.05);
-        color: var(--text-gray-400);
-        font-weight: 600;
-    }
-
-    .demo3-row.extracting .demo3-cell {
-        background: rgba(16, 185, 129, 0.1);
-        color: var(--accent-primary);
-    }
-
-    .demo3-arrow-box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 4px;
-    }
-
-    .demo3-extract-btn {
-        padding: 6px;
-        background: var(--accent-primary);
-        border-radius: 50%;
-        color: #000;
-        opacity: 0.3;
-        transition: all 0.3s;
-        display: flex;
-    }
-
-    .demo3-extract-btn svg {
-        width: 12px;
-        height: 12px;
-    }
-
-    .demo3-extract-btn.active {
-        opacity: 1;
-        box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
-    }
-
-    .demo3-progress {
-        font-size: 7px;
-        color: var(--accent-primary);
-        opacity: 0;
-    }
-
-    .demo3-progress.show {
-        opacity: 1;
-    }
-
-    .demo3-result {
-        flex: 1;
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 6px;
-        padding: 8px;
-    }
-
-    .demo3-result-header {
-        font-size: 9px;
-        color: var(--accent-primary);
-        margin-bottom: 6px;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-    }
-
-    .demo3-result-header svg {
-        width: 10px;
-        height: 10px;
-    }
-
-    .demo3-tracking {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .demo3-track-item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 6px;
-        background: var(--bg-darker);
-        border-radius: 5px;
-        font-size: 9px;
-        opacity: 0;
-        transform: scale(0.95);
-        transition: all 0.3s;
-    }
-
-    .demo3-track-item.show {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    .demo3-track-item span:first-child {
-        color: var(--text-gray-400);
-    }
-
-    .demo3-track-status {
-        padding: 2px 6px;
-        border-radius: 3px;
-        font-size: 7px;
-        font-weight: 600;
-    }
-
-    .status-packing {
-        background: #fbbf24;
-        color: #000;
-    }
-
-    .status-shipped {
-        background: #3b82f6;
-        color: #fff;
-    }
-
-    .status-delivered {
-        background: #10b981;
-        color: #000;
-    }
+    .demo3-container { display: flex; gap: 6px; }
+    .demo3-seller { flex: 1; background: rgba(255, 255, 255, 0.03); border-radius: 6px; padding: 8px; }
+    .demo3-seller-header { display: flex; align-items: center; gap: 4px; margin-bottom: 6px; font-size: 9px; color: var(--text-gray-500); }
+    .demo3-seller-header svg { width: 10px; height: 10px; }
+    .demo3-table { background: var(--bg-darker); border-radius: 5px; overflow: hidden; }
+    .demo3-row { display: grid; grid-template-columns: 1fr 1fr 1fr; font-size: 8px; border-bottom: 1px solid var(--border-color); }
+    .demo3-row:last-child { border-bottom: none; }
+    .demo3-cell { padding: 5px 6px; color: var(--text-gray-500); transition: all 0.3s; }
+    .demo3-row.header .demo3-cell { background: rgba(255, 255, 255, 0.05); color: var(--text-gray-400); font-weight: 600; }
+    .demo3-row.extracting .demo3-cell { background: rgba(16, 185, 129, 0.1); color: var(--accent-primary); }
+    .demo3-arrow-box { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+    .demo3-extract-btn { padding: 6px; background: var(--accent-primary); border-radius: 50%; color: #000; opacity: 0.3; transition: all 0.3s; display: flex; }
+    .demo3-extract-btn svg { width: 12px; height: 12px; }
+    .demo3-extract-btn.active { opacity: 1; box-shadow: 0 0 12px rgba(16, 185, 129, 0.5); }
+    .demo3-progress { font-size: 7px; color: var(--accent-primary); opacity: 0; }
+    .demo3-progress.show { opacity: 1; }
+    .demo3-result { flex: 1; background: rgba(255, 255, 255, 0.03); border-radius: 6px; padding: 8px; }
+    .demo3-result-header { font-size: 9px; color: var(--accent-primary); margin-bottom: 6px; display: flex; align-items: center; gap: 4px; }
+    .demo3-result-header svg { width: 10px; height: 10px; }
+    .demo3-tracking { display: flex; flex-direction: column; gap: 5px; }
+    .demo3-track-item { display: flex; align-items: center; justify-content: space-between; padding: 6px; background: var(--bg-darker); border-radius: 5px; font-size: 9px; opacity: 0; transform: scale(0.95); transition: all 0.3s; }
+    .demo3-track-item.show { opacity: 1; transform: scale(1); }
+    .demo3-track-item span:first-child { color: var(--text-gray-400); }
+    .demo3-track-status { padding: 2px 6px; border-radius: 3px; font-size: 7px; font-weight: 600; }
+    .status-packing { background: #fbbf24; color: #000; }
+    .status-shipped { background: #3b82f6; color: #fff; }
+    .status-delivered { background: #10b981; color: #000; }
 
     /* Demo 4 */
-    .demo4-timeline {
+    .demo4-timeline { position: relative; padding-left: 20px; }
+    .demo4-line { position: absolute; left: 6px; top: 0; bottom: 0; width: 2px; background: var(--border-color); }
+    .demo4-line-progress { position: absolute; left: 6px; top: 0; width: 2px; height: 0; background: var(--accent-primary); transition: height 0.4s; }
+    .demo4-event { position: relative; margin-bottom: 12px; opacity: 0.3; transition: all 0.3s; }
+    .demo4-event:last-child { margin-bottom: 0; }
+    .demo4-event.active { opacity: 1; }
+    .demo4-dot { position: absolute; left: -17px; top: 2px; width: 6px; height: 6px; border-radius: 50%; background: var(--border-color); transition: all 0.3s; }
+    .demo4-event.active .demo4-dot { background: var(--accent-primary); box-shadow: 0 0 6px rgba(16, 185, 129, 0.5); }
+    .demo4-day { font-size: 8px; color: var(--text-gray-500); margin-bottom: 3px; }
+    .demo4-event.active .demo4-day { color: var(--accent-primary); }
+    .demo4-msg-box { background: rgba(255, 255, 255, 0.03); border-radius: 5px; padding: 6px 8px; border-left: 2px solid transparent; }
+    .demo4-event.active .demo4-msg-box { border-left-color: var(--accent-primary); }
+    .demo4-msg-type { font-size: 7px; font-weight: 600; text-transform: uppercase; margin-bottom: 2px; }
+    .type-trigger { color: #3b82f6; }
+    .type-friendly { color: #10b981; }
+    .type-firm { color: #f59e0b; }
+    .type-warning { color: #ef4444; }
+    .demo4-msg-text { font-size: 9px; color: var(--text-gray-400); }
+    .demo4-result { margin-top: 10px; padding: 8px; background: rgba(16, 185, 129, 0.1); border-radius: 6px; text-align: center; opacity: 0; transition: all 0.4s; }
+    .demo4-result.show { opacity: 1; }
+    .demo4-result-value { font-size: 20px; font-weight: 700; color: var(--accent-primary); font-family: monospace; }
+    .demo4-result-label { font-size: 8px; color: var(--text-gray-500); }
+
+    /* Demo 5 */
+    .demo5-container { display: flex; flex-direction: column; gap: 8px; }
+    .demo5-submit-box { background: rgba(255, 255, 255, 0.03); border-radius: 6px; padding: 10px; }
+    .demo5-submit-header { font-size: 9px; color: var(--text-gray-500); margin-bottom: 6px; }
+    .demo5-link-input { display: flex; gap: 5px; }
+    .demo5-link { flex: 1; background: var(--bg-darker); border: 1px solid var(--border-color); border-radius: 5px; padding: 6px 8px; font-size: 9px; color: var(--text-gray-500); transition: all 0.3s; font-family: monospace; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .demo5-link.filled { border-color: var(--accent-primary); color: #fff; }
+    .demo5-verify-btn { padding: 6px 12px; background: var(--border-color); border-radius: 5px; font-size: 9px; color: var(--text-gray-500); transition: all 0.3s; }
+    .demo5-verify-btn.active { background: var(--accent-primary); color: #000; font-weight: 600; }
+    .demo5-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .demo5-stat { background: rgba(255, 255, 255, 0.03); border-radius: 6px; padding: 10px 6px; text-align: center; opacity: 0; transform: translateY(6px); transition: all 0.3s; }
+    .demo5-stat.show { opacity: 1; transform: translateY(0); }
+    .demo5-stat-value { font-size: 16px; font-weight: 700; color: #fff; font-family: monospace; }
+    .demo5-stat-label { font-size: 7px; color: var(--text-gray-500); text-transform: uppercase; }
+    .demo5-gmv { background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1)); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 6px; padding: 10px; display: flex; align-items: center; justify-content: space-between; opacity: 0; transition: all 0.4s; }
+    .demo5-gmv.show { opacity: 1; }
+    .demo5-gmv-label { font-size: 8px; color: var(--text-gray-500); }
+    .demo5-gmv-value { font-size: 16px; font-weight: 700; color: var(--accent-primary); font-family: monospace; }
+    .demo5-roi { padding: 3px 8px; background: var(--accent-primary); color: #000; font-size: 9px; font-weight: 600; border-radius: 20px; }
+
+
+    /* =========================================
+       NEW: TRACKER SECTION STYLES (DARK MODE)
+       ========================================= */
+    .tracker-wrapper {
+        margin-top: 80px;
+        padding-top: 60px;
+        border-top: 1px solid var(--border-color);
         position: relative;
-        padding-left: 20px;
     }
 
-    .demo4-line {
-        position: absolute;
-        left: 6px;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background: var(--border-color);
+    .tracker-title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    .tracker-title h3 {
+        color: var(--text-white);
+        font-size: 20px;
+        margin-bottom: 8px;
     }
 
-    .demo4-line-progress {
-        position: absolute;
-        left: 6px;
-        top: 0;
-        width: 2px;
-        height: 0;
-        background: var(--accent-primary);
-        transition: height 0.4s;
+    .tracker-title p {
+        color: var(--text-gray-400);
+        font-size: 14px;
     }
 
-    .demo4-event {
+    .tracker-container {
         position: relative;
-        margin-bottom: 12px;
-        opacity: 0.3;
-        transition: all 0.3s;
+        max-width: 100%;
+        overflow-x: auto;
+        padding-bottom: 20px;
+        /* Hide scrollbar */
+        scrollbar-width: none; 
+        -ms-overflow-style: none;
+    }
+    .tracker-container::-webkit-scrollbar { 
+        display: none; 
     }
 
-    .demo4-event:last-child {
-        margin-bottom: 0;
+    .tracker-steps-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        min-width: 800px; /* Ensure horizontal scroll on mobile */
+        position: relative;
+        z-index: 10;
     }
 
-    .demo4-event.active {
-        opacity: 1;
-    }
-
-    .demo4-dot {
+    /* Background Line */
+    .tracker-line-bg {
         position: absolute;
-        left: -17px;
-        top: 2px;
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
+        top: 35px; /* Half of icon height (70px/2) */
+        left: 0;
+        width: 100%;
+        height: 4px;
         background: var(--border-color);
-        transition: all 0.3s;
+        border-radius: 4px;
+        z-index: 0;
     }
 
-    .demo4-event.active .demo4-dot {
+    /* Active Progress Line */
+    .tracker-line-fill {
+        position: absolute;
+        top: 35px;
+        left: 0;
+        height: 4px;
         background: var(--accent-primary);
-        box-shadow: 0 0 6px rgba(16, 185, 129, 0.5);
+        border-radius: 4px;
+        z-index: 1;
+        width: 0%;
+        transition: width 0.8s ease-in-out;
+        box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
     }
 
-    .demo4-day {
-        font-size: 8px;
-        color: var(--text-gray-500);
-        margin-bottom: 3px;
+    .tracker-step-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100px;
+        position: relative;
+        z-index: 2;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .demo4-event.active .demo4-day {
-        color: var(--accent-primary);
-    }
-
-    .demo4-msg-box {
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 5px;
-        padding: 6px 8px;
-        border-left: 2px solid transparent;
-    }
-
-    .demo4-event.active .demo4-msg-box {
-        border-left-color: var(--accent-primary);
-    }
-
-    .demo4-msg-type {
-        font-size: 7px;
-        font-weight: 600;
-        text-transform: uppercase;
-        margin-bottom: 2px;
-    }
-
-    .type-trigger {
-        color: #3b82f6;
-    }
-
-    .type-friendly {
-        color: #10b981;
-    }
-
-    .type-firm {
-        color: #f59e0b;
-    }
-
-    .type-warning {
-        color: #ef4444;
-    }
-
-    .demo4-msg-text {
-        font-size: 9px;
+    /* Squircle Box */
+    .squircle-box {
+        width: 70px;
+        height: 70px;
+        background: var(--bg-card); /* Dark background */
+        border: 2px solid var(--border-color);
+        /* Squircle Border Radius */
+        border-radius: 30% 30% 30% 30% / 30% 30% 30% 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s ease-in-out;
+        position: relative;
         color: var(--text-gray-400);
     }
 
-    .demo4-result {
-        margin-top: 10px;
-        padding: 8px;
-        background: rgba(16, 185, 129, 0.1);
-        border-radius: 6px;
-        text-align: center;
-        opacity: 0;
-        transition: all 0.4s;
-    }
-
-    .demo4-result.show {
-        opacity: 1;
-    }
-
-    .demo4-result-value {
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--accent-primary);
-        font-family: monospace;
-    }
-
-    .demo4-result-label {
-        font-size: 8px;
-        color: var(--text-gray-500);
-    }
-
-    /* Demo 5 */
-    .demo5-container {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .demo5-submit-box {
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 6px;
-        padding: 10px;
-    }
-
-    .demo5-submit-header {
-        font-size: 9px;
-        color: var(--text-gray-500);
-        margin-bottom: 6px;
-    }
-
-    .demo5-link-input {
-        display: flex;
-        gap: 5px;
-    }
-
-    .demo5-link {
-        flex: 1;
-        background: var(--bg-darker);
-        border: 1px solid var(--border-color);
-        border-radius: 5px;
-        padding: 6px 8px;
-        font-size: 9px;
-        color: var(--text-gray-500);
-        transition: all 0.3s;
-        font-family: monospace;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-
-    .demo5-link.filled {
-        border-color: var(--accent-primary);
-        color: #fff;
-    }
-
-    .demo5-verify-btn {
-        padding: 6px 12px;
-        background: var(--border-color);
-        border-radius: 5px;
-        font-size: 9px;
-        color: var(--text-gray-500);
+    .squircle-icon {
+        font-size: 28px;
         transition: all 0.3s;
     }
 
-    .demo5-verify-btn.active {
-        background: var(--accent-primary);
-        color: #000;
-        font-weight: 600;
-    }
-
-    .demo5-stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 6px;
-    }
-
-    .demo5-stat {
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 6px;
-        padding: 10px 6px;
-        text-align: center;
-        opacity: 0;
-        transform: translateY(6px);
-        transition: all 0.3s;
-    }
-
-    .demo5-stat.show {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .demo5-stat-value {
-        font-size: 16px;
-        font-weight: 700;
-        color: #fff;
-        font-family: monospace;
-    }
-
-    .demo5-stat-label {
-        font-size: 7px;
-        color: var(--text-gray-500);
-        text-transform: uppercase;
-    }
-
-    .demo5-gmv {
-        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1));
-        border: 1px solid rgba(16, 185, 129, 0.2);
-        border-radius: 6px;
-        padding: 10px;
+    /* Checklist Animation */
+    .check-overlay {
+        position: absolute;
+        inset: 0;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
+        transform: scale(0) rotate(-45deg);
         opacity: 0;
-        transition: all 0.4s;
+        transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    .demo5-gmv.show {
-        opacity: 1;
+    .tracker-label {
+        margin-top: 16px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-gray-400);
+        text-align: center;
+        transition: color 0.3s;
     }
 
-    .demo5-gmv-label {
-        font-size: 8px;
-        color: var(--text-gray-500);
-    }
+    /* --- STATES --- */
 
-    .demo5-gmv-value {
-        font-size: 16px;
-        font-weight: 700;
+    /* Active State */
+    .tracker-step-item[data-status="active"] .squircle-box {
+        border-color: var(--accent-primary);
         color: var(--accent-primary);
-        font-family: monospace;
+        background: rgba(16, 185, 129, 0.1); /* Slight green tint */
+        box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+        transform: scale(1.1);
+    }
+    .tracker-step-item[data-status="active"] .tracker-label {
+        color: var(--accent-primary);
+        font-weight: 700;
     }
 
-    .demo5-roi {
-        padding: 3px 8px;
-        background: var(--accent-primary);
-        color: #000;
-        font-size: 9px;
-        font-weight: 600;
-        border-radius: 20px;
+    /* Done State */
+    .tracker-step-item[data-status="done"] .squircle-box {
+        border-color: var(--accent-primary);
+        background: var(--bg-card);
     }
+    .tracker-step-item[data-status="done"] .squircle-icon {
+        opacity: 0.1; /* Fade out original icon */
+    }
+    .tracker-step-item[data-status="done"] .check-overlay {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+        color: var(--accent-primary);
+        font-size: 32px;
+        font-weight: bold;
+    }
+    .tracker-step-item[data-status="done"] .tracker-label {
+        color: var(--accent-primary);
+    }
+
 </style>
 
 <section class="workflow-section" id="cara-kerja">
@@ -903,7 +505,6 @@
         </div>
 
         <div class="workflow-steps">
-            <!-- Step 1: Command Center -->
             <div class="workflow-step reveal">
                 <span class="workflow-step-number">1</span>
                 <div class="workflow-step-content">
@@ -979,7 +580,6 @@
                 </div>
             </div>
 
-            <!-- Step 2: Smart Outreach -->
             <div class="workflow-step reveal">
                 <span class="workflow-step-number">2</span>
                 <div class="workflow-step-content">
@@ -1049,7 +649,6 @@
                 </div>
             </div>
 
-            <!-- Step 3: Zero-Entry Logistics -->
             <div class="workflow-step reveal">
                 <span class="workflow-step-number">3</span>
                 <div class="workflow-step-content">
@@ -1152,7 +751,6 @@
                 </div>
             </div>
 
-            <!-- Step 4: Auto-Nudging -->
             <div class="workflow-step reveal">
                 <span class="workflow-step-number">4</span>
                 <div class="workflow-step-content">
@@ -1242,7 +840,6 @@
                 </div>
             </div>
 
-            <!-- Step 5: Content Intelligence -->
             <div class="workflow-step reveal">
                 <span class="workflow-step-number">5</span>
                 <div class="workflow-step-content">
@@ -1323,10 +920,83 @@
                 </div>
             </div>
         </div>
+
+        <div class="tracker-wrapper reveal" id="tracker-section">
+            <div class="tracker-title">
+                <h3>Monitor Progres Otomatis</h3>
+                <p>Workflow berjalan sendiri, Anda tinggal pantau hasilnya.</p>
+            </div>
+            
+            <div class="tracker-container">
+                <div class="tracker-steps-flex" id="trackerContainer">
+                    <div class="tracker-line-bg"></div>
+                    <div id="trackerProgress" class="tracker-line-fill"></div>
+
+                    <div class="tracker-step-item" data-status="done">
+                        <div class="squircle-box">
+                            <i class="ri-broadcast-fill squircle-icon"></i>
+                            <div class="check-overlay"><i class="ri-check-line"></i></div>
+                        </div>
+                        <div class="tracker-label">Broadcast</div>
+                    </div>
+
+                    <div class="tracker-step-item" data-status="active">
+                        <div class="squircle-box">
+                            <i class="ri-user-add-fill squircle-icon"></i>
+                            <div class="check-overlay"><i class="ri-check-line"></i></div>
+                        </div>
+                        <div class="tracker-label">Join</div>
+                    </div>
+
+                    <div class="tracker-step-item" data-status="pending">
+                        <div class="squircle-box">
+                            <i class="ri-thumb-up-fill squircle-icon"></i>
+                            <div class="check-overlay"><i class="ri-check-line"></i></div>
+                        </div>
+                        <div class="tracker-label">Approve</div>
+                    </div>
+
+                    <div class="tracker-step-item" data-status="pending">
+                        <div class="squircle-box">
+                            <i class="ri-truck-fill squircle-icon"></i>
+                            <div class="check-overlay"><i class="ri-check-line"></i></div>
+                        </div>
+                        <div class="tracker-label">Dikirim</div>
+                    </div>
+
+                    <div class="tracker-step-item" data-status="pending">
+                        <div class="squircle-box">
+                            <i class="ri-alarm-warning-fill squircle-icon"></i>
+                            <div class="check-overlay"><i class="ri-check-line"></i></div>
+                        </div>
+                        <div class="tracker-label">Tagih</div>
+                    </div>
+
+                    <div class="tracker-step-item" data-status="pending">
+                        <div class="squircle-box">
+                            <i class="ri-upload-cloud-2-fill squircle-icon"></i>
+                            <div class="check-overlay"><i class="ri-check-line"></i></div>
+                        </div>
+                        <div class="tracker-label">Setor</div>
+                    </div>
+
+                    <div class="tracker-step-item" data-status="pending">
+                        <div class="squircle-box">
+                            <i class="ri-pie-chart-2-fill squircle-icon"></i>
+                            <div class="check-overlay"><i class="ri-check-line"></i></div>
+                        </div>
+                        <div class="tracker-label">Pantau</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
 <script>
+    // --- EXISTING SCRIPT ---
     function typeText(el, txt, cb) { let i = 0; el.textContent = ''; const int = setInterval(() => { el.textContent += txt[i]; i++; if (i >= txt.length) { clearInterval(int); if (cb) cb(); } }, 35); }
 
     function runDemo1() {
@@ -1361,6 +1031,78 @@
         setTimeout(() => lk.classList.add('filled'), 200); setTimeout(() => { bt.classList.add('active'); bt.textContent = '...'; }, 500); setTimeout(() => { bt.textContent = '✓'; st[0].classList.add('show'); }, 1100); setTimeout(() => st[1].classList.add('show'), 1300); setTimeout(() => st[2].classList.add('show'), 1500); setTimeout(() => gm.classList.add('show'), 1900);
     }
 
-    const obs = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); const id = entry.target.querySelector('.workflow-step-visual')?.id; if (id === 'demo1') setTimeout(runDemo1, 300); if (id === 'demo2') setTimeout(runDemo2, 300); if (id === 'demo3') setTimeout(runDemo3, 300); if (id === 'demo4') setTimeout(runDemo4, 300); if (id === 'demo5') setTimeout(runDemo5, 300); } }); }, { threshold: 0.3 });
-    document.querySelectorAll('.workflow-step').forEach(el => obs.observe(el));
+    // --- NEW: TRACKER ANIMATION LOGIC ---
+    let trackerInterval;
+    function runTrackerDemo() {
+        if(trackerInterval) clearInterval(trackerInterval); // Reset if already running
+        
+        const steps = document.querySelectorAll('.tracker-step-item');
+        const progressFill = document.getElementById('trackerProgress');
+        let currentActiveIndex = 1; 
+        const progressWidths = ['14%', '28%', '42%', '57%', '71%', '85%', '100%'];
+        
+        // Reset State
+        steps.forEach((step, idx) => {
+            if(idx === 0) {
+                step.setAttribute('data-status', 'done');
+                progressFill.style.width = '14%';
+            } else if (idx === 1) {
+                step.setAttribute('data-status', 'active');
+            } else {
+                step.setAttribute('data-status', 'pending');
+            }
+        });
+
+        trackerInterval = setInterval(() => {
+            if (currentActiveIndex < steps.length) {
+                // Prev -> Done
+                const previousStep = steps[currentActiveIndex - 1];
+                if(previousStep) previousStep.setAttribute('data-status', 'done');
+
+                // Current -> Active
+                const currentStep = steps[currentActiveIndex];
+                currentStep.setAttribute('data-status', 'active');
+
+                // Bar
+                progressFill.style.width = progressWidths[currentActiveIndex];
+
+                currentActiveIndex++;
+            } else {
+                // Finish Loop
+                steps[steps.length - 1].setAttribute('data-status', 'done');
+                progressFill.style.width = '100%';
+                
+                // Optional: Restart Loop after delay
+                setTimeout(() => {
+                     currentActiveIndex = 1;
+                     runTrackerDemo();
+                }, 3000);
+                clearInterval(trackerInterval);
+            }
+        }, 1500); // Speed of transition
+    }
+
+
+    // --- OBSERVER ---
+    const obs = new IntersectionObserver((entries) => { 
+        entries.forEach(entry => { 
+            if (entry.isIntersecting) { 
+                entry.target.classList.add('active'); 
+                const id = entry.target.querySelector('.workflow-step-visual')?.id; 
+                // Existing Demos
+                if (id === 'demo1') setTimeout(runDemo1, 300); 
+                if (id === 'demo2') setTimeout(runDemo2, 300); 
+                if (id === 'demo3') setTimeout(runDemo3, 300); 
+                if (id === 'demo4') setTimeout(runDemo4, 300); 
+                if (id === 'demo5') setTimeout(runDemo5, 300); 
+
+                // New Tracker Demo
+                if (entry.target.id === 'tracker-section') {
+                    setTimeout(runTrackerDemo, 500);
+                }
+            } 
+        }); 
+    }, { threshold: 0.3 });
+    
+    document.querySelectorAll('.workflow-step, .tracker-wrapper').forEach(el => obs.observe(el));
 </script>
