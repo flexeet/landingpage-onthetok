@@ -329,8 +329,11 @@
     .demo5-roi { padding: 3px 8px; background: var(--accent-primary); color: #000; font-size: 9px; font-weight: 600; border-radius: 20px; }
 
 
+   <style>
+    /* ... (CSS bagian atas biarkan saja) ... */
+
     /* =========================================
-       NEW: TRACKER SECTION STYLES (DARK MODE)
+       PERBAIKAN: TRACKER SECTION STYLES
        ========================================= */
     .tracker-wrapper {
         margin-top: 80px;
@@ -360,7 +363,6 @@
         max-width: 100%;
         overflow-x: auto;
         padding-bottom: 20px;
-        /* Hide scrollbar */
         scrollbar-width: none; 
         -ms-overflow-style: none;
     }
@@ -372,24 +374,25 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        min-width: 800px; /* Ensure horizontal scroll on mobile */
+        min-width: 800px;
         position: relative;
-        z-index: 10;
+        /* Membuat konteks tumpukan baru */
+        z-index: 1; 
     }
 
-    /* Background Line */
+    /* --- GARIS (BACKGROUND & PROGRESS) --- */
+    /* Posisi garis diatur Absolute, tapi Z-Index paling bawah */
     .tracker-line-bg {
         position: absolute;
-        top: 35px; /* Half of icon height (70px/2) */
+        top: 35px; /* Setengah dari tinggi icon 70px */
         left: 0;
         width: 100%;
         height: 4px;
         background: var(--border-color);
         border-radius: 4px;
-        z-index: 0;
+        z-index: 0; /* Layer paling bawah */
     }
 
-    /* Active Progress Line */
     .tracker-line-fill {
         position: absolute;
         top: 35px;
@@ -397,36 +400,44 @@
         height: 4px;
         background: var(--accent-primary);
         border-radius: 4px;
-        z-index: 1;
+        z-index: 0; /* Layer bawah (sama dengan bg line, tapi di atasnya karena urutan DOM) */
         width: 0%;
         transition: width 0.8s ease-in-out;
         box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
     }
 
+    /* --- ITEM STEPS --- */
     .tracker-step-item {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 100px;
         position: relative;
-        z-index: 2;
+        z-index: 2; /* PENTING: Ikon harus di atas garis */
         transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Squircle Box */
+    /* --- KOTAK SQUIRCLE --- */
     .squircle-box {
         width: 70px;
         height: 70px;
-        background: var(--bg-card); /* Dark background */
+        
+        /* PERBAIKAN UTAMA DI SINI: */
+        /* Gunakan var(--bg-dark) agar warnanya solid sama dengan background halaman */
+        /* Ini akan menutupi garis yang lewat di belakangnya */
+        background: var(--bg-dark); 
+        
         border: 2px solid var(--border-color);
-        /* Squircle Border Radius */
-        border-radius: 30% 30% 30% 30% / 30% 30% 30% 30%;
+        border-radius: 30% 30% 30% 30% / 30% 30% 30% 30%; /* Bentuk Oval/Squircle */
         display: flex;
         align-items: center;
         justify-content: center;
         transition: all 0.5s ease-in-out;
         position: relative;
         color: var(--text-gray-400);
+        
+        /* Tambahkan box-shadow sedikit agar tidak terlihat 'bolong' jika warna sama persis */
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
     }
 
     .squircle-icon {
@@ -434,7 +445,7 @@
         transition: all 0.3s;
     }
 
-    /* Checklist Animation */
+    /* Checklist Overlay */
     .check-overlay {
         position: absolute;
         inset: 0;
@@ -444,6 +455,7 @@
         transform: scale(0) rotate(-45deg);
         opacity: 0;
         transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        z-index: 5;
     }
 
     .tracker-label {
@@ -453,15 +465,20 @@
         color: var(--text-gray-400);
         text-align: center;
         transition: color 0.3s;
+        /* Beri background text sedikit agar garis tidak memotong teks (opsional) */
+        background: var(--bg-dark);
+        padding: 0 4px;
+        z-index: 2;
     }
 
-    /* --- STATES --- */
+    /* --- STATES (ACTIVE / DONE) --- */
 
     /* Active State */
     .tracker-step-item[data-status="active"] .squircle-box {
         border-color: var(--accent-primary);
         color: var(--accent-primary);
-        background: rgba(16, 185, 129, 0.1); /* Slight green tint */
+        /* Gunakan background solid + sedikit tint, jangan transparan penuh */
+        background: #0f1f1a; /* Atau sesuaikan dengan var(--bg-dark) yang agak terang */
         box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
         transform: scale(1.1);
     }
@@ -473,10 +490,11 @@
     /* Done State */
     .tracker-step-item[data-status="done"] .squircle-box {
         border-color: var(--accent-primary);
-        background: var(--bg-card);
+        /* Tetap solid background saat done */
+        background: var(--bg-dark); 
     }
     .tracker-step-item[data-status="done"] .squircle-icon {
-        opacity: 0.1; /* Fade out original icon */
+        opacity: 0.1; 
     }
     .tracker-step-item[data-status="done"] .check-overlay {
         transform: scale(1) rotate(0deg);
