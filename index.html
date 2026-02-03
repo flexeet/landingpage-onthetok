@@ -75,13 +75,10 @@
         }
 
         @keyframes pulse {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: scale(1);
                 opacity: 1;
             }
-
             50% {
                 transform: scale(1.05);
                 opacity: 0.9;
@@ -102,20 +99,15 @@
         }
 
         @keyframes glitchLoading {
-
-            0%,
-            100% {
+            0%, 100% {
                 text-shadow: -3px -2px 0px #25F4EE, 3px 3px 0px #FE2C55;
             }
-
             10% {
                 text-shadow: 3px 2px 0px #25F4EE, -2px -3px 0px #FE2C55;
             }
-
             20% {
                 text-shadow: -2px 3px 0px #25F4EE, 3px -2px 0px #FE2C55;
             }
-
             30% {
                 text-shadow: 3px -2px 0px #25F4EE, -3px 3px 0px #FE2C55;
             }
@@ -132,20 +124,11 @@
 
         .loading-bar {
             height: 100%;
+            width: 0%;
             background: linear-gradient(90deg, #25F4EE, #FE2C55);
             border-radius: 100px;
-            animation: loadingProgress 2s ease-in-out forwards;
             box-shadow: 0 0 20px #25F4EE;
-        }
-
-        @keyframes loadingProgress {
-            0% {
-                width: 0%;
-            }
-
-            100% {
-                width: 100%;
-            }
+            transition: width 0.3s ease-out;
         }
 
         @keyframes fadeInUp {
@@ -153,7 +136,6 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -169,21 +151,12 @@
             <img src="https://flxr2.com/ott/logo.png" alt="OnTheTok" class="loading-logo">
             <h1 class="loading-text">OnTheTok</h1>
             <div class="loading-bar-container">
-                <div class="loading-bar"></div>
+                <div class="loading-bar" id="loadingBar"></div>
             </div>
         </div>
     </div>
 
-    <!-- 
-    ============================================
-    OnTheTok Landing Page - Modular Structure
-    
-    Setiap section di-load otomatis dari folder /sections/
-    Edit file section secara terpisah, lalu refresh halaman.
-    ============================================
-    -->
-
-    <!-- SECTION CONTAINERS - Will be populated by JavaScript -->
+    <!-- SECTION CONTAINERS -->
     <div id="section-header"></div>
     <div id="section-hero"></div>
     <div id="section-brand-carousel"></div>
@@ -203,27 +176,35 @@
     <script>
         /**
          * OnTheTok Section Loader
-         * Automatically loads HTML sections from /sections/ folder
+         * Loading bar sekarang mengikuti progress sebenarnya
          */
 
         const sections = [
             { id: 'section-header', file: 'sections/01-header.html' },
             { id: 'section-hero', file: 'sections/02-hero.html' },
-           // { id: 'section-brand-carousel', file: 'sections/02a-brand-carousel.html' },
+            // { id: 'section-brand-carousel', file: 'sections/02a-brand-carousel.html' },
             { id: 'section-pain-points', file: 'sections/03-pain-points.html' },
             { id: 'section-solution', file: 'sections/04-solution.html' },
             { id: 'section-workflow', file: 'sections/05-workflow.html' },
             { id: 'section-features', file: 'sections/06-features.html' },
             { id: 'section-roi', file: 'sections/07-roi.html' },
-           // { id: 'section-stats', file: 'sections/08-stats.html' },
-         //   { id: 'section-testimonials', file: 'sections/09-testimonials.html' },
+            // { id: 'section-stats', file: 'sections/08-stats.html' },
+            // { id: 'section-testimonials', file: 'sections/09-testimonials.html' },
             { id: 'section-pricing', file: 'sections/10-pricing.html' },
             { id: 'section-faq', file: 'sections/11-faq.html' },
-          //  { id: 'section-final-cta', file: 'sections/12-final-cta.html' },
+            // { id: 'section-final-cta', file: 'sections/12-final-cta.html' },
             { id: 'section-footer', file: 'sections/13-footer.html' }
         ];
 
         let loadedCount = 0;
+        const totalSections = sections.length;
+        const loadingBar = document.getElementById('loadingBar');
+
+        // Update loading bar progress
+        function updateProgress() {
+            const progress = (loadedCount / totalSections) * 100;
+            loadingBar.style.width = progress + '%';
+        }
 
         // Function to load a single section
         async function loadSection(section) {
@@ -254,26 +235,29 @@
                 console.warn(`Error loading ${section.file}:`, error);
             } finally {
                 loadedCount++;
-                if (loadedCount === sections.length) {
+                updateProgress();
+                
+                if (loadedCount === totalSections) {
                     hideLoadingScreen();
                 }
             }
         }
 
-        // Load all sections
+        // Load all sections sequentially for smooth progress bar
         async function loadAllSections() {
-            // Load sections in parallel
-            await Promise.all(sections.map(section => loadSection(section)));
+            for (const section of sections) {
+                await loadSection(section);
+            }
         }
 
-        // Hide loading screen
+        // Hide loading screen with slight delay after 100%
         function hideLoadingScreen() {
             setTimeout(() => {
                 const loadingScreen = document.getElementById('loadingScreen');
                 if (loadingScreen) {
                     loadingScreen.classList.add('hidden');
                 }
-            }, 500); // Small delay after all sections loaded
+            }, 400);
         }
 
         // Start loading when DOM is ready
@@ -283,9 +267,12 @@
         setTimeout(() => {
             const loadingScreen = document.getElementById('loadingScreen');
             if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
-                loadingScreen.classList.add('hidden');
+                loadingBar.style.width = '100%';
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                }, 300);
             }
-        }, 5000);
+        }, 8000);
     </script>
 </body>
 
